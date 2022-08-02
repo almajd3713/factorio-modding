@@ -1,18 +1,12 @@
 --[[ Generated with https://github.com/TypeScriptToLua/TypeScriptToLua ]]
-sendPrivateMessage = function(____, tableIn)
-    local player = game.get_player(tableIn.player_index)
-    local color = rgbGen(nil)
-    player.print(((("Aye ! this message is for " .. player.name) .. " and ") .. player.name) .. " alone !", color)
-    game.print("someone here received a secret message :D")
+printDamage = function(____, ____table)
+    local player = game.get_player(____table.player_index)
+    local entity = ____table.created_entity
+    player.add_alert(entity, defines.alert_type.entity_destroyed)
 end
-commands.add_command(
-    "pm",
-    "sends a private message",
-    function(data) return sendPrivateMessage(nil, data) end
+filters = {{filter = "type", type = "container"}}
+script.on_event(
+    defines.events.on_built_entity,
+    function(data) return printDamage(nil, data) end,
+    filters
 )
-rgbGen = function()
-    local r = math.floor(math.random() * 256)
-    local g = math.floor(math.random() * 256)
-    local b = math.floor(math.random() * 256)
-    return {r = r, g = g, b = b}
-end

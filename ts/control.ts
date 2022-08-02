@@ -1,20 +1,13 @@
 
+let printDamage = (table: OnBuiltEntityEvent) => {
+  const player = game.get_player(table.player_index)!
+  const entity = table.created_entity
 
-
-const sendPrivateMessage = (tableIn: CustomCommandData) => {
-  const player = game.get_player(tableIn.player_index!) as LuaPlayer
-  let color = rgbGen()
-  player.print(`Aye ! this message is for ${player.name} and ${player.name} alone !`, color)
-  game.print("someone here received a secret message \:D")
+  player.add_alert(entity, defines.alert_type.entity_destroyed)
 }
 
-commands.add_command("pm", "sends a private message", (data) => sendPrivateMessage(data))
 
-
-
-let rgbGen = () => {
-  let r = Math.floor(Math.random() * 256)
-  let g = Math.floor(Math.random() * 256)
-  let b = Math.floor(Math.random() * 256)
-  return {r, g, b}
-}
+let filters: LuaPlayerBuiltEntityEventFilter[] = [
+  {filter: "type", type: "container"}
+]
+script.on_event(defines.events.on_built_entity, data => printDamage(data), filters)

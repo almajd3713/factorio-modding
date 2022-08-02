@@ -24,7 +24,12 @@ game -- [OBJECT]: the game function, contains most of the stuff that you want
 
 player -- [OBJECT]: a certain player object, get_player() can give it
   .print("message") -- sends a private message
+  .add_alert(entity, defines.alert_types.ALERT)
   
+defines -- [OBJECT] all the constants needed in the game are used here
+  .events -- [OBJECT] all the events of the game are here
+script -- [OBJECT] the scripting object
+  .on_event(defines.events.EVENT, function) -- adds an event listener to the event
 ```
 
 - Adding Custom Commands
