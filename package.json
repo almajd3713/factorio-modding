@@ -1,0 +1,16 @@
+{
+  "name": "factorio-modding",
+  "version": "1.0.0",
+  "description": "This is a repo for my (hopefully) future mods. I'll also add guides for myself that I can use in the future. I hope that I will maintain this repo",
+  "main": "index.js",
+  "scripts": {
+    "start": "tstl -w"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typed-factorio": "^1.6.0",
+    "typescript-to-lua": "^1.7.1"
+  }
+}

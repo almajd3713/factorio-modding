@@ -1,0 +1,21 @@
+
+{
+  "mods": 
+  [
+    
+    {
+      "name": "base",
+      "enabled": true
+    },
+    
+    {
+      "name": "creative-mod",
+      "enabled": true
+    },
+    
+    {
+      "name": "mod1-testing",
+      "enabled": true
+    }
+  ]
+}
